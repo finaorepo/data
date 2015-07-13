@@ -1,0 +1,55 @@
+User
+{
+   _id: "11111111",
+   password : "Pa$$W0rd",
+   userName : "skondam",
+   firstName : "Sampath",
+   lastName : "Kondam",
+   email : "samfromco@yahoo.com",
+   birthDate : "1/1/2001",
+   profilePicUrl : "<s3_url>",
+   bannerImage : "<s3_url>",
+   gender : "M",
+   address : {street : "123 Any Street", city : "Baltimore", state: "MD", zip : "21043", country : "USA"},
+   status : "Active",
+   registeredDate : "7/12/2015",  
+   lastAccessedDate : "7/13/2015",
+   finaoCount : "20",
+   notifications : {count : "20", lastSent : "07/12/2015", lastMessage : "reminder"},
+   counts : {finaos : "1", posts : "1", inspired : "3", following : "0", follower : "2", groups : "1" },
+   groups : [{user : "22334455"}]
+ }
+ 
+ //FINAOs will be bucketed, with 5 in each bucket. While creating a new bucket, increment the bucket id so that we can index with userid and bucket.
+ UserFinao
+ { 
+	"_id" : "22222222", 
+	"userid" : "11111111", 
+	"bucket" : "1", 
+	"name" : "Good Start", 
+	"finaos" : { 
+		"tile" : "Athletics", 
+		"description" : "Wish to run a marathon under 3 hrs", 
+		"visibility" : "Public", 
+		"status" : "On Track", 
+		"inspired" : [ { "user" : "22334455" }, { "user" : "66778899" }, { "user" : "88990011" } ], 
+		"followers" : [ { "user" : "55667788" }, { "user" : "99001122" } ] 
+	} 
+}
+
+
+
+Tile
+{ 
+	"_id" : "11223344", 
+	"name" : "Athletics", 
+	"description" : "To get active" 
+}
+
+userGroup
+{ 
+	"_id" : "22334455", 
+	"name" : "Howard Runners", 
+	"description" : "Howard County, Lets keep moving", 
+	"members" : [ "11111111" ] 
+}
